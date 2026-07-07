@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starfield Mod Database (Separated Categories)</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 20px;
+    }
+    .search-container {
+        margin-bottom: 20px;
+    }
+    #searchInput {
+        width: 100%;
+        max-width: 500px;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    /* Tabs styling */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        border-radius: 4px 4px 0 0;
+        display: flex;
+    }
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 24px;
+        transition: 0.3s;
+        font-size: 16px;
+        font-weight: bold;
+        flex: 1;
+        color: #555;
+    }
+    .tab button:hover {
+        background-color: #ddd;
+    }
+    .tab button.active {
+        background-color: #2c3e50;
+        color: white;
+    }
+
+    /* Tab content */
+    .tabcontent {
+        display: none;
+        padding: 20px 0;
+        border-top: none;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+    th, td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background-color: #2c3e50;
+        color: #ffffff;
+        cursor: pointer;
+        position: sticky;
+        top: 0;
+        user-select: none;
+    }
+    th:hover {
+        background-color: #1a252f;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    .sort-icon {
+        margin-left: 5px;
+        font-size: 12px;
+    }
+    .table-title {
+        color: #2c3e50;
+        margin-top: 0;
+        border-bottom: 2px solid #2c3e50;
+        padding-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Starfield Equipment Mod Database (Separated)</h1>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchTables()" placeholder="Search active table for mods, descriptions, or slots...">
+    </div>
+
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'Weapon')">Weapons</button>
+        <button class="tablinks" onclick="openTab(event, 'Spacesuit')">Spacesuits</button>
+        <button class="tablinks" onclick="openTab(event, 'Helmet')">Helmets</button>
+        <button class="tablinks" onclick="openTab(event, 'BoostPack')">Boost Packs</button>
+    </div>
+
+    <!-- WEAPONS TAB -->
+    <div id="Weapon" class="tabcontent" style="display: block;">
+        <h2 class="table-title">Weapon Modifications</h2>
+        <table id="WeaponTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable('WeaponTable', 0)">Slot / Category <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('WeaponTable', 1)">Mod Name <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('WeaponTable', 2)">Description <span class="sort-icon">&#9650;&#9660;</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Barrel</td><td>Standard Barrel</td><td>Standard layout altering basic trajectory and range.</td></tr>
+                <tr><td>Barrel</td><td>Long Barrel</td><td>Increases range and accuracy at the cost of weight.</td></tr>
+                <tr><td>Barrel</td><td>Short Barrel</td><td>Reduces weight and increases aim speed at the cost of range.</td></tr>
+                <tr><td>Barrel</td><td>Bull Barrel</td><td>Heavier barrel configuration for increased accuracy and stability.</td></tr>
+                <tr><td>Barrel</td><td>Fluted Barrel</td><td>Lightens the weapon while maintaining accuracy and cooling.</td></tr>
+                <tr><td>Barrel</td><td>Magnetic Rails</td><td>Electromagnetically accelerates projectiles for massive damage.</td></tr>
+                <tr><td>Barrel</td><td>Suppressed Barrel</td><td>Integrates a sound suppressor to mask firing profile.</td></tr>
+                <tr><td>Barrel</td><td>Advanced Barrel</td><td>Improves heat mechanics for increased damage at the cost of fire rate.</td></tr>
+                <tr><td>Cover</td><td>Removed Cover</td><td>Exposes internal casing to reduce weapon weight.</td></tr>
+                <tr><td>Cover</td><td>Standard Cover</td><td>Standard housing cover layout.</td></tr>
+                <tr><td>Cover</td><td>Amplifier</td><td>Internal housing energy amplifier to scale energy output.</td></tr>
+                <tr><td>Laser & Optics</td><td>Iron Sights</td><td>Standard mechanical targeting layout.</td></tr>
+                <tr><td>Laser & Optics</td><td>Laser Sight</td><td>Casts a laser tracking node to increase hip-fire accuracy.</td></tr>
+                <tr><td>Laser & Optics</td><td>Recon Laser Sight</td><td>Targets marked automatically when aimed over.</td></tr>
+                <tr><td>Laser & Optics</td><td>Reflex Sight</td><td>Electronic sight offering rapid target acquisition.</td></tr>
+                <tr><td>Laser & Optics</td><td>Holographic Sight</td><td>High-accuracy holographic projection aiming lens.</td></tr>
+                <tr><td>Laser & Optics</td><td>Short Scope</td><td>Low-magnification long-range optic.</td></tr>
+                <tr><td>Laser & Optics</td><td>Medium Scope</td><td>Mid-magnification long-range optic.</td></tr>
+                <tr><td>Laser & Optics</td><td>Long Scope</td><td>High-magnification long-range optic.</td></tr>
+                <tr><td>Laser & Optics</td><td>Recon Scope</td><td>High-magnification tracking scope layout.</td></tr>
+                <tr><td>Muzzle</td><td>Compensator</td><td>Increases stability and hip-fire accuracy.</td></tr>
+                <tr><td>Muzzle</td><td>Muzzle Brake</td><td>Controls gas distribution to stabilize severe vertical recoil.</td></tr>
+                <tr><td>Muzzle</td><td>Large Muzzle Brake</td><td>Heavy recoil control module.</td></tr>
+                <tr><td>Muzzle</td><td>Suppressor</td><td>Separately attached muzzle suppressor for stealth optimization.</td></tr>
+                <tr><td>Muzzle</td><td>Stealth Lasers</td><td>Lowers weapon emission visibility signature.</td></tr>
+                <tr><td>Muzzle</td><td>Shock Charge Band</td><td>Adds an electrical component to impacts.</td></tr>
+                <tr><td>Muzzle</td><td>Choke</td><td>Specifically constricts shotgun projectile spread patterns.</td></tr>
+                <tr><td>Muzzle</td><td>Focus Nozzle</td><td>Pinpoints plasma/laser arcs into highly concentrated beams.</td></tr>
+                <tr><td>Stock & Grips</td><td>Standard Grip</td><td>Standard grip profile.</td></tr>
+                <tr><td>Stock & Grips</td><td>Tactical Grip</td><td>Lightweight ergonomics for increased aim down sights speed.</td></tr>
+                <tr><td>Stock & Grips</td><td>Ergonomic Grip</td><td>Highly tailored grip to balance recoil control.</td></tr>
+                <tr><td>Stock & Grips</td><td>Standard Stock</td><td>Standard rifle buttstock.</td></tr>
+                <tr><td>Stock & Grips</td><td>Tactical Stock</td><td>Lightened stock configuration maximizing handling traits.</td></tr>
+                <tr><td>Stock & Grips</td><td>Ergonomic Stock</td><td>Optimal weight allocation to mitigate prolonged sight drift.</td></tr>
+                <tr><td>Stock & Grips</td><td>Stabilizing Stock</td><td>Specialized heavy stock to curb automatic recoil sway.</td></tr>
+                <tr><td>Stock & Grips</td><td>Folding Stock</td><td>Greatly reduces size and weapon weight.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Standard Mag/Battery</td><td>Default structural ammunition cell capacity.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Small/Large/Tactical Mag</td><td>Shifts cell capacity or reload pacing parameters.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Drum Magazine</td><td>Maximizes storage capacity at the absolute cost of speed.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Armor-Piercing Rounds</td><td>Heavy-casing projectiles built to defeat armor layers.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Depleted Uranium Rounds</td><td>Highly dense cores that cut through advanced armor arrays.</td></tr>
+                <tr><td>Magazine & Battery</td><td>EM-Charged Shot/Beams</td><td>Inflicts systemic disruption to stun organic and mechanical entities.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Explosive Rounds</td><td>Generates volatile shell detonations upon impact points.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Flechette Rounds</td><td>Fires tearing barbs that slice through soft target armor layers.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Penetrator Rounds</td><td>Pierces cleanly through enemies and thin cover surfaces.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Whitehot Rounds</td><td>Thermal-tipped ammunition designed to continuously burn targets.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Annihilator Rounds</td><td>Projectiles radiating an unstable aura that aggressively spreads.</td></tr>
+                <tr><td>Internal</td><td>Amplifier</td><td>Scales energy beam potency and overall kinetic power output.</td></tr>
+                <tr><td>Internal</td><td>Bullet Hose</td><td>Specialized high-cycle action multiplying range, fire rate, and accuracy.</td></tr>
+                <tr><td>Internal</td><td>Hair Trigger</td><td>Significantly increases weapon cycle response and fire rate.</td></tr>
+                <tr><td>Internal</td><td>High Powered</td><td>Upgrades internal receiver linkages to boost muzzle energy and damage.</td></tr>
+                <tr><td>Internal</td><td>High Velocity</td><td>Specialized internal component optimization to drive higher bullet speeds.</td></tr>
+                <tr><td>Internal</td><td>Overclocked</td><td>Forces mechanical actions past intended safety baselines to elevate cyclic fire rate.</td></tr>
+                <tr><td>Receiver</td><td>Semi-Automatic</td><td>Traditional single projectile discharge per cycle.</td></tr>
+                <tr><td>Receiver</td><td>Burst Fire</td><td>Discharges a set, high-velocity grouped burst per single action.</td></tr>
+                <tr><td>Receiver</td><td>Fully Automatic</td><td>Provides a continuous payload stream while trigger remains down.</td></tr>
+                <tr><td>Receiver</td><td>Binary Trigger</td><td>Doubles fire cycling speeds by firing on both trigger depression and release steps.</td></tr>
+                <tr><td>Melee Additions</td><td>Alloyed Steel Blade</td><td>Hardened edge composition augmenting base cutting power.</td></tr>
+                <tr><td>Melee Additions</td><td>Corroding Blade</td><td>Imbues slashes with persistent acidic armor-stripping properties.</td></tr>
+                <tr><td>Melee Additions</td><td>Alloy Handle</td><td>Lightens balance to favor swift kinetic attack cycles.</td></tr>
+                <tr><td>Melee Additions</td><td>Ergonomic Handle</td><td>Stabilizes stance to maximize weapon impact force profiles.</td></tr>
+                <tr><td>Melee Additions</td><td>Experimental Alloy Handle</td><td>Advanced construction balancing extreme cutting swing paces.</td></tr>
+                <tr><td>Melee Additions</td><td>Accelerant</td><td>Dramatically boosts swinging speed at the absolute cost of edge tracking.</td></tr>
+                <tr><td>Upgrade Module</td><td>Accuracy Upgrade</td><td>Permanent technical application optimizing stability thresholds.</td></tr>
+                <tr><td>Upgrade Module</td><td>Aim Speed Upgrade</td><td>Mechanical modifications targeting target acquisition velocity.</td></tr>
+                <tr><td>Upgrade Module</td><td>Ammo Capacity Upgrade</td><td>Physical alignment increasing structural ammunition capacities.</td></tr>
+                <tr><td>Upgrade Module</td><td>Attack Speed Upgrade</td><td>Mechanical adjustments boosting physical strike or action velocity.</td></tr>
+                <tr><td>Upgrade Module</td><td>Damage Upgrade</td><td>Baseline calibration pushing core explosive or physical impact metrics higher.</td></tr>
+                <tr><td>Upgrade Module</td><td>Range Upgrade</td><td>Muzzle and energy alignment extending terminal velocity profiles.</td></tr>
+                <tr><td>Upgrade Module</td><td>Reload Speed Upgrade</td><td>Friction reduction to optimize magazine exchange windows.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Anti-Personnel</td><td>+10% damage against humans.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Bashing</td><td>Deals double damage when gun bashing.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Berserker</td><td>Deal more damage the less armor one has.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Cornered</td><td>Damage increases as health decreases.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Disassembler</td><td>+20% damage against robots.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Extended Magazine</td><td>Doubles the base magazine capacity.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Exterminator</td><td>+30% damage against aliens.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Furious</td><td>Each consecutive hit deals more damage.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Instigating</td><td>Deals double damage to targets with full health.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Space-Adept</td><td>+30% damage while in space, and -15% damage while on a planet.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Corrosive</td><td>Randomly deals corrosive damage and reduces the targets' armor over 6 seconds.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Crippling</td><td>Deals +30% damage on the next attack after hitting a target's limbs.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Handloading</td><td>Volatile rounds designed to pack a punch, but aren't as stable.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Hitman</td><td>+15% damage while aiming.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Incendiary</td><td>Randomly deals incendiary damage.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Lacerate</td><td>Randomly applies a bleed effect to the target.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Med Theft</td><td>Chance that humans drop extra Med Packs on death.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Poison</td><td>Randomly deals poison damage and slows the target.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Radioactive</td><td>Randomly deals radioactive damage and demoralizes the target.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Rapid</td><td>+25% increase in attack speed.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Staggering</td><td>Small chance to stagger enemies.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Concussive</td><td>Small chance to knock down targets.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Demoralizing</td><td>Small chance to demoralize a target.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Explosive</td><td>Randomly switches to explosive rounds.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Frenzy</td><td>Small chance to frenzy a target.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>One Inch Punch</td><td>Rounds fire in a shotgun-like spread.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Shattering</td><td>Break through even the strongest armor.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Skip Shot</td><td>Every fourth shot fires two projectiles at once.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Tesla</td><td>Rounds emit electricity that damages and slows nearby targets.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Titanium Build</td><td>Premium build materials make this weapon light as a feather.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Barbaric</td><td>Attacks get faster/powerful with each hit; movement speed increased in combat.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Bloodthirsty</td><td>Killing enemies grants health.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Kismet</td><td>On reload, there is a 25% chance to triple your magazine size.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Methodical</td><td>Grants a massive damage boost after killing elite enemies.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Reckless</td><td>Ranged: Mag size is 1, dmg increased 500%, max health reduced by 50%.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Saboteur</td><td>Damaging robots may instakill them, robots dying this way explode.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SPACESUITS TAB -->
+    <div id="Spacesuit" class="tabcontent">
+        <h2 class="table-title">Spacesuit Modifications</h2>
+        <table id="SpacesuitTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable('SpacesuitTable', 0)">Slot / Category <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('SpacesuitTable', 1)">Mod Name <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('SpacesuitTable', 2)">Description <span class="sort-icon">&#9650;&#9660;</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Slot 1</td><td>Ballistic Shielding</td><td>Increases physical damage resistance.</td></tr>
+                <tr><td>Slot 1</td><td>EM Shielding</td><td>Increases Electromagnetic resistance.</td></tr>
+                <tr><td>Slot 1</td><td>Energy Shielding</td><td>Increases Energy resistance.</td></tr>
+                <tr><td>Slot 2</td><td>Explosive Shielding</td><td>Reduces damage taken from explosives.</td></tr>
+                <tr><td>Slot 2</td><td>Optimized Servos</td><td>Reduces Oxygen cost for sprinting.</td></tr>
+                <tr><td>Slot 2</td><td>Auto-Medic</td><td>Automatically use a Med Pack when hit and health is below 25%, once every 60 seconds.</td></tr>
+                <tr><td>Slot 3</td><td>Heavy Shielding</td><td>Increases all overarching damage resistances.</td></tr>
+                <tr><td>Slot 3</td><td>Exo Servos</td><td>Increases melee damage output.</td></tr>
+                <tr><td>Slot 4</td><td>Pocketed</td><td>Increases overall carrying capacity.</td></tr>
+                <tr><td>Slot 4</td><td>Gravitic Composites</td><td>Reduces detection from enemies, enhancing stealth.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Ablative</td><td>-15% incoming energy damage.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Anti-Ballistic</td><td>-15% incoming Physical damage from ranged weapons.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Beast Hunter</td><td>-15% damage from Alien enemies.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Bolstering</td><td>Grants up to +100 Energy resistance and Physical resistance, the lower your health.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Chameleon</td><td>Blend with the environment while sneaking and not moving.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Combat Veteran</td><td>-15% damage from Human enemies.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>O2 Boosted</td><td>+20% oxygen capacity.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>O2 Filter</td><td>-25% oxygen consumption.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Sturdy</td><td>-15% incoming melee damage.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Technician</td><td>-15% damage from Robot enemies.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Acrobat</td><td>-50% fall damage.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Analyzer</td><td>+10% damage to scanned targets.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Antiseptic</td><td>+25 Airborne Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Auto-Medic</td><td>Automatically use a Med Pack when hit and health is below 25%, once every 60 seconds.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Fastened</td><td>+20 carry capacity.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Galvanized</td><td>+25 Corrosive Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Hacker</td><td>+2 max auto attempts that can be banked while hacking.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Leadlined</td><td>+25 Radiation Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Liquid Cooled</td><td>+25 Thermal Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Resource Hauler</td><td>Resources weigh 25% less.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Weapon Holsters</td><td>Weapons weigh 50% less.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Armor-Plated</td><td>-10% incoming Physical, Energy, and EM damage.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Assisted Carry</td><td>Drain 75% less O2 when running while encumbered.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Fast Reflexes</td><td>+15% Movement speed.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Headhunter</td><td>Deals +25% damage on the next attack after hitting a target's head.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Incendiary</td><td>10% chance to ignite nearby attackers.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Mechanized</td><td>+40 carry capacity.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Mirrored</td><td>4% chance to reflect attacks.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Reactive</td><td>10% chance to stagger nearby attackers.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Repulsing</td><td>5% chance to disarm nearby attackers.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Sentinel</td><td>75% chance to reduce damage by 50% while standing still.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Sensor Chip</td><td>+20% accuracy while firing on the move.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Abyssal Release</td><td>After taking significant damage, you automatically deal massive amounts of damage to an attacker.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Advanced Targeting</td><td>Kills while moving increase your accuracy by 15% for 20 seconds; stacks up to three times.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Electrified</td><td>Enemies attacking have a chance to be electrocuted.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Enigmatic</td><td>Holograms of yourself appear while in combat, confusing enemies.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Inspiring</td><td>Increases companion health and damage output.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Mercenary</td><td>Killing 3 enemies within 10 seconds increases your critical hit chance by 50% for 20 seconds.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Speedster</td><td>While at full health you run much faster, and taking damage has a chance to knockdown nearby enemies.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- HELMETS TAB -->
+    <div id="Helmet" class="tabcontent">
+        <h2 class="table-title">Helmet Modifications</h2>
+        <table id="HelmetTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable('HelmetTable', 0)">Slot / Category <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('HelmetTable', 1)">Mod Name <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('HelmetTable', 2)">Description <span class="sort-icon">&#9650;&#9660;</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Slot 1</td><td>Ballistic Shielding</td><td>Increases physical damage resistance.</td></tr>
+                <tr><td>Slot 1</td><td>EM Shielding</td><td>Increases Electromagnetic resistance.</td></tr>
+                <tr><td>Slot 1</td><td>Energy Shielding</td><td>Increases Energy resistance.</td></tr>
+                <tr><td>Slot 2</td><td>Explosive Shielding</td><td>Reduces damage taken from explosives.</td></tr>
+                <tr><td>Slot 2</td><td>Sensor Array</td><td>Increases the detection range of enemies on the compass.</td></tr>
+                <tr><td>Slot 3</td><td>Heavy Shielding</td><td>Increases all overarching damage resistances.</td></tr>
+                <tr><td>Slot 4</td><td>Gravitic Composites</td><td>Reduces detection from enemies, enhancing stealth.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Ablative</td><td>-15% incoming energy damage.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Anti-Ballistic</td><td>-15% incoming Physical damage from ranged weapons.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Beast Hunter</td><td>-15% damage from Alien enemies.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Bolstering</td><td>Grants up to +100 Energy resistance and Physical resistance, the lower your health.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Chameleon</td><td>Blend with the environment while sneaking and not moving.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Combat Veteran</td><td>-15% damage from Human enemies.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>O2 Boosted</td><td>+20% oxygen capacity.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>O2 Filter</td><td>-25% oxygen consumption.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Sturdy</td><td>-15% incoming melee damage.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Technician</td><td>-15% damage from Robot enemies.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Acrobat</td><td>-50% fall damage.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Analyzer</td><td>+10% damage to scanned targets.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Antiseptic</td><td>+25 Airborne Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Auto-Medic</td><td>Automatically use a Med Pack when hit and health is below 25%, once every 60 seconds.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Fastened</td><td>+20 carry capacity.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Galvanized</td><td>+25 Corrosive Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Hacker</td><td>+2 max auto attempts that can be banked while hacking.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Leadlined</td><td>+25 Radiation Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Liquid Cooled</td><td>+25 Thermal Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Resource Hauler</td><td>Resources weigh 25% less.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Weapon Holsters</td><td>Weapons weigh 50% less.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Armor-Plated</td><td>-10% incoming Physical, Energy, and EM damage.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Assisted Carry</td><td>Drain 75% less O2 when running while encumbered.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Fast Reflexes</td><td>+15% Movement speed.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Headhunter</td><td>Deals +25% damage on the next attack after hitting a target's head.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Incendiary</td><td>10% chance to ignite nearby attackers.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Mechanized</td><td>+40 carry capacity.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Mirrored</td><td>4% chance to reflect attacks.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Reactive</td><td>10% chance to stagger nearby attackers.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Repulsing</td><td>5% chance to disarm nearby attackers.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Sentinel</td><td>75% chance to reduce damage by 50% while standing still.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Sensor Chip</td><td>+20% accuracy while firing on the move.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Abyssal Release</td><td>After taking significant damage, you automatically deal massive amounts of damage to an attacker.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Advanced Targeting</td><td>Kills while moving increase your accuracy by 15% for 20 seconds; stacks up to three times.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Electrified</td><td>Enemies attacking have a chance to be electrocuted.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Enigmatic</td><td>Holograms of yourself appear while in combat, confusing enemies.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Inspiring</td><td>Increases companion health and damage output.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Mercenary</td><td>Killing 3 enemies within 10 seconds increases your critical hit chance by 50% for 20 seconds.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Speedster</td><td>While at full health you run much faster, and taking damage has a chance to knockdown nearby enemies.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- BOOST PACKS TAB -->
+    <div id="BoostPack" class="tabcontent">
+        <h2 class="table-title">Boost Pack Modifications</h2>
+        <table id="BoostPackTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable('BoostPackTable', 0)">Slot / Category <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('BoostPackTable', 1)">Mod Name <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('BoostPackTable', 2)">Description <span class="sort-icon">&#9650;&#9660;</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Slot 1</td><td>Extra Capacity</td><td>Increases carrying capacity via pack modifications.</td></tr>
+                <tr><td>Slot 1</td><td>Hazard Protection</td><td>Boosts resistance to Airborne, Thermal, Corrosive, and Radiation hazards.</td></tr>
+                <tr><td>Slot 1</td><td>Oxygen Reserve</td><td>Expands maximum oxygen reserves.</td></tr>
+                <tr><td>Slot 2</td><td>Emergency Aid</td><td>Administers emergency aid when health is low, recharging after a short time.</td></tr>
+                <tr><td>Slot 2</td><td>Medic</td><td>Enhances overall medical capabilities.</td></tr>
+                <tr><td>Slot 2</td><td>Regeneration</td><td>Slowly restores health outside of active combat scenarios.</td></tr>
+                <tr><td>Type Slot</td><td>Basic Boostpack</td><td>Entry-level boostpack setup.</td></tr>
+                <tr><td>Type Slot</td><td>Balanced Boostpack</td><td>Boostpack with a balanced distribution of power and volume.</td></tr>
+                <tr><td>Type Slot</td><td>Power Boostpack</td><td>Focuses thrust for maximum vertical momentum.</td></tr>
+                <tr><td>Type Slot</td><td>Skip Capacity Boostpack</td><td>Provides multiple short, rapid horizontal bursts.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Ablative</td><td>-15% incoming energy damage.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Anti-Ballistic</td><td>-15% incoming Physical damage from ranged weapons.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Beast Hunter</td><td>-15% damage from Alien enemies.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Bolstering</td><td>Grants up to +100 Energy resistance and Physical resistance, the lower your health.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Chameleon</td><td>Blend with the environment while sneaking and not moving.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Combat Veteran</td><td>-15% damage from Human enemies.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>O2 Boosted</td><td>+20% oxygen capacity.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>O2 Filter</td><td>-25% oxygen consumption.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Sturdy</td><td>-15% incoming melee damage.</td></tr>
+                <tr><td>Rank 1 (Rare)</td><td>Technician</td><td>-15% damage from Robot enemies.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Acrobat</td><td>-50% fall damage.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Analyzer</td><td>+10% damage to scanned targets.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Antiseptic</td><td>+25 Airborne Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Auto-Medic</td><td>Automatically use a Med Pack when hit and health is below 25%, once every 60 seconds.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Fastened</td><td>+20 carry capacity.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Galvanized</td><td>+25 Corrosive Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Hacker</td><td>+2 max auto attempts that can be banked while hacking.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Leadlined</td><td>+25 Radiation Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Liquid Cooled</td><td>+25 Thermal Resistance.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Resource Hauler</td><td>Resources weigh 25% less.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Weapon Holsters</td><td>Weapons weigh 50% less.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Armor-Plated</td><td>-10% incoming Physical, Energy, and EM damage.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Assisted Carry</td><td>Drain 75% less O2 when running while encumbered.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Fast Reflexes</td><td>+15% Movement speed.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Headhunter</td><td>Deals +25% damage on the next attack after hitting a target's head.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Incendiary</td><td>10% chance to ignite nearby attackers.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Mechanized</td><td>+40 carry capacity.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Mirrored</td><td>4% chance to reflect attacks.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Reactive</td><td>10% chance to stagger nearby attackers.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Repulsing</td><td>5% chance to disarm nearby attackers.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Sentinel</td><td>75% chance to reduce damage by 50% while standing still.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Sensor Chip</td><td>+20% accuracy while firing on the move.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    // Tab switching logic
+    function openTab(evt, tabName) {
+        let i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+        
+        // Clear search when switching tabs to avoid confusion
+        document.getElementById("searchInput").value = "";
+        searchTables();
+    }
+
+    // Search logic for active table
+    function searchTables() {
+        let input, filter, activeTab, table, tr, td, i, j, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toLowerCase();
+        
+        // Find which tab is active
+        let tabcontents = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontents.length; i++) {
+            if (tabcontents[i].style.display === "block") {
+                activeTab = tabcontents[i];
+                break;
+            }
+        }
+        
+        if(activeTab) {
+            table = activeTab.getElementsByTagName("table")[0];
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                tr[i].style.display = "none";
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        txtValue = td[j].textContent || td[j].innerText;
+                        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Sort logic for specific tables
+    let sortDirections = {};
+    function sortTable(tableId, columnIndex) {
+        let table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById(tableId);
+        switching = true;
+        
+        if (!(tableId + columnIndex in sortDirections)) {
+            sortDirections[tableId + columnIndex] = true;
+        } else {
+            sortDirections[tableId + columnIndex] = !sortDirections[tableId + columnIndex];
+        }
+        
+        let sortDir = sortDirections[tableId + columnIndex];
+
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[columnIndex];
+                y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
+                
+                let valX = x.innerHTML.toLowerCase();
+                let valY = y.innerHTML.toLowerCase();
+
+                if (sortDir) {
+                    if (valX > valY) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else {
+                    if (valX < valY) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
