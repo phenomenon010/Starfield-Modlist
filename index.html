@@ -1,121 +1,160 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Starfield Mod Database (Separated Categories)</title>
+<title>FableFire's Starfield Equipment Mod Database</title>
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f7f6;
-        color: #333;
+        background-color: #0b0d17;
+        color: #d1d5db;
         margin: 0;
         padding: 20px;
+        line-height: 1.6;
     }
     .container {
         max-width: 1200px;
         margin: 0 auto;
-        background: #fff;
-        padding: 20px;
+        background: #151828;
+        padding: 30px;
         border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        border: 1px solid #2d3748;
     }
     h1 {
         text-align: center;
-        color: #2c3e50;
-        margin-bottom: 20px;
+        color: #ffffff;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 3px solid #f97316;
+        padding-bottom: 15px;
     }
     .search-container {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
     #searchInput {
         width: 100%;
         max-width: 500px;
-        padding: 12px;
+        padding: 12px 20px;
         font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        background-color: #1a1d2d;
+        border: 1px solid #4a5568;
+        border-radius: 6px;
         display: block;
         margin: 0 auto;
+        color: #ffffff;
+        transition: border-color 0.3s;
+    }
+    #searchInput:focus {
+        border-color: #f97316;
+        outline: none;
     }
     
     /* Tabs styling */
     .tab {
         overflow: hidden;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-        border-radius: 4px 4px 0 0;
+        background-color: #1a1d2d;
+        border-radius: 6px 6px 0 0;
         display: flex;
+        border: 1px solid #2d3748;
+        border-bottom: none;
     }
     .tab button {
         background-color: inherit;
-        float: left;
         border: none;
         outline: none;
         cursor: pointer;
-        padding: 14px 24px;
+        padding: 15px 24px;
         transition: 0.3s;
         font-size: 16px;
         font-weight: bold;
         flex: 1;
-        color: #555;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
     .tab button:hover {
-        background-color: #ddd;
+        background-color: #25293e;
+        color: #ffffff;
     }
     .tab button.active {
-        background-color: #2c3e50;
-        color: white;
+        background-color: #151828;
+        color: #f97316;
+        border-top: 3px solid #f97316;
+        margin-top: -3px;
     }
 
     /* Tab content */
     .tabcontent {
         display: none;
-        padding: 20px 0;
+        padding: 25px;
+        background-color: #151828;
+        border: 1px solid #2d3748;
         border-top: none;
+        border-radius: 0 0 6px 6px;
     }
 
     table {
         width: 100%;
         border-collapse: collapse;
         font-size: 14px;
+        margin-top: 10px;
     }
     th, td {
-        padding: 12px 15px;
-        border-bottom: 1px solid #ddd;
+        padding: 14px 18px;
+        border-bottom: 1px solid #2d3748;
         text-align: left;
     }
     th {
-        background-color: #2c3e50;
+        background-color: #1a1d2d;
         color: #ffffff;
         cursor: pointer;
         position: sticky;
         top: 0;
         user-select: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.5px;
     }
     th:hover {
-        background-color: #1a252f;
+        background-color: #25293e;
+        color: #f97316;
     }
     tr:hover {
-        background-color: #f1f1f1;
+        background-color: #1e2235;
     }
     .sort-icon {
-        margin-left: 5px;
-        font-size: 12px;
+        margin-left: 8px;
+        font-size: 11px;
+        color: #9ca3af;
+    }
+    th.asc .sort-icon::after {
+        content: " ▲";
+        color: #f97316;
+    }
+    th.desc .sort-icon::after {
+        content: " ▼";
+        color: #f97316;
+    }
+    th:not(.asc):not(.desc) .sort-icon::after {
+        content: " ⇅";
     }
     .table-title {
-        color: #2c3e50;
+        color: #ffffff;
         margin-top: 0;
-        border-bottom: 2px solid #2c3e50;
+        border-bottom: 2px solid #374151;
         padding-bottom: 10px;
+        font-size: 20px;
     }
 </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Starfield Equipment Mod Database (Separated)</h1>
+    <h1>Starfield Equipment Mod Database</h1>
     
     <div class="search-container">
         <input type="text" id="searchInput" onkeyup="searchTables()" placeholder="Search active table for mods, descriptions, or slots...">
@@ -134,9 +173,9 @@
         <table id="WeaponTable">
             <thead>
                 <tr>
-                    <th onclick="sortTable('WeaponTable', 0)">Slot / Category <span class="sort-icon">&#9650;&#9660;</span></th>
-                    <th onclick="sortTable('WeaponTable', 1)">Mod Name <span class="sort-icon">&#9650;&#9660;</span></th>
-                    <th onclick="sortTable('WeaponTable', 2)">Description <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('WeaponTable', 0)">Slot / Category <span class="sort-icon"></span></th>
+                    <th onclick="sortTable('WeaponTable', 1)">Mod Name <span class="sort-icon"></span></th>
+                    <th onclick="sortTable('WeaponTable', 2)">Description <span class="sort-icon"></span></th>
                 </tr>
             </thead>
             <tbody>
@@ -176,19 +215,19 @@
                 <tr><td>Stock & Grips</td><td>Ergonomic Stock</td><td>Optimal weight allocation to mitigate prolonged sight drift.</td></tr>
                 <tr><td>Stock & Grips</td><td>Stabilizing Stock</td><td>Specialized heavy stock to curb automatic recoil sway.</td></tr>
                 <tr><td>Stock & Grips</td><td>Folding Stock</td><td>Greatly reduces size and weapon weight.</td></tr>
-                <tr><td>Magazine & Battery</td><td>Standard Mag/Battery</td><td>Default structural ammunition cell capacity.</td></tr>
-                <tr><td>Magazine & Battery</td><td>Small/Large/Tactical Mag</td><td>Shifts cell capacity or reload pacing parameters.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Standard Magazine/Battery</td><td>Default structural ammunition cell capacity.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Small/Large/Tactical Magazine/Battery</td><td>Shifts cell capacity or reload pacing parameters.</td></tr>
                 <tr><td>Magazine & Battery</td><td>Drum Magazine</td><td>Maximizes storage capacity at the absolute cost of speed.</td></tr>
                 <tr><td>Magazine & Battery</td><td>Armor-Piercing Rounds</td><td>Heavy-casing projectiles built to defeat armor layers.</td></tr>
                 <tr><td>Magazine & Battery</td><td>Depleted Uranium Rounds</td><td>Highly dense cores that cut through advanced armor arrays.</td></tr>
-                <tr><td>Magazine & Battery</td><td>EM-Charged Shot/Beams</td><td>Inflicts systemic disruption to stun organic and mechanical entities.</td></tr>
+                <tr><td>Magazine & Battery</td><td>EM-Charged Shot / Electromagnetic Beams/Magazine</td><td>Inflicts systemic disruption to stun organic and mechanical entities.</td></tr>
                 <tr><td>Magazine & Battery</td><td>Explosive Rounds</td><td>Generates volatile shell detonations upon impact points.</td></tr>
                 <tr><td>Magazine & Battery</td><td>Flechette Rounds</td><td>Fires tearing barbs that slice through soft target armor layers.</td></tr>
                 <tr><td>Magazine & Battery</td><td>Penetrator Rounds</td><td>Pierces cleanly through enemies and thin cover surfaces.</td></tr>
                 <tr><td>Magazine & Battery</td><td>Whitehot Rounds</td><td>Thermal-tipped ammunition designed to continuously burn targets.</td></tr>
-                <tr><td>Magazine & Battery</td><td>Annihilator Rounds</td><td>Projectiles radiating an unstable aura that aggressively spreads.</td></tr>
+                <tr><td>Magazine & Battery</td><td>Annihilator Rounds</td><td>Projectiles radiating an unstable aura that aggressively spreads across adjacent entities.</td></tr>
                 <tr><td>Internal</td><td>Amplifier</td><td>Scales energy beam potency and overall kinetic power output.</td></tr>
-                <tr><td>Internal</td><td>Bullet Hose</td><td>Specialized high-cycle action multiplying range, fire rate, and accuracy.</td></tr>
+                <tr><td>Internal</td><td>Bullet Hose</td><td>Specialized high-cycle action multiplying range, fire rate, and accuracy attributes.</td></tr>
                 <tr><td>Internal</td><td>Hair Trigger</td><td>Significantly increases weapon cycle response and fire rate.</td></tr>
                 <tr><td>Internal</td><td>High Powered</td><td>Upgrades internal receiver linkages to boost muzzle energy and damage.</td></tr>
                 <tr><td>Internal</td><td>High Velocity</td><td>Specialized internal component optimization to drive higher bullet speeds.</td></tr>
@@ -222,30 +261,30 @@
                 <tr><td>Rank 1 (Rare)</td><td>Space-Adept</td><td>+30% damage while in space, and -15% damage while on a planet.</td></tr>
                 <tr><td>Rank 2 (Epic)</td><td>Corrosive</td><td>Randomly deals corrosive damage and reduces the targets' armor over 6 seconds.</td></tr>
                 <tr><td>Rank 2 (Epic)</td><td>Crippling</td><td>Deals +30% damage on the next attack after hitting a target's limbs.</td></tr>
-                <tr><td>Rank 2 (Epic)</td><td>Handloading</td><td>Volatile rounds designed to pack a punch, but aren't as stable.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Handloading</td><td>Volatile rounds that are designed to pack a bigger punch, but aren't as stable and can fail on occasion.</td></tr>
                 <tr><td>Rank 2 (Epic)</td><td>Hitman</td><td>+15% damage while aiming.</td></tr>
                 <tr><td>Rank 2 (Epic)</td><td>Incendiary</td><td>Randomly deals incendiary damage.</td></tr>
                 <tr><td>Rank 2 (Epic)</td><td>Lacerate</td><td>Randomly applies a bleed effect to the target.</td></tr>
                 <tr><td>Rank 2 (Epic)</td><td>Med Theft</td><td>Chance that humans drop extra Med Packs on death.</td></tr>
                 <tr><td>Rank 2 (Epic)</td><td>Poison</td><td>Randomly deals poison damage and slows the target.</td></tr>
-                <tr><td>Rank 2 (Epic)</td><td>Radioactive</td><td>Randomly deals radioactive damage and demoralizes the target.</td></tr>
+                <tr><td>Rank 2 (Epic)</td><td>Radioactive</td><td>Randomly deals radioactive damage and demoralizes (add fear/panic debuff that interrupts combat behavior and forces retreat) the target.</td></tr>
                 <tr><td>Rank 2 (Epic)</td><td>Rapid</td><td>+25% increase in attack speed.</td></tr>
                 <tr><td>Rank 2 (Epic)</td><td>Staggering</td><td>Small chance to stagger enemies.</td></tr>
                 <tr><td>Rank 3 (Legendary)</td><td>Concussive</td><td>Small chance to knock down targets.</td></tr>
-                <tr><td>Rank 3 (Legendary)</td><td>Demoralizing</td><td>Small chance to demoralize a target.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Demoralizing</td><td>Small chance to demoralize (add fear/panic debuff that interrupts combat behavior and forces retreat) a target.</td></tr>
                 <tr><td>Rank 3 (Legendary)</td><td>Explosive</td><td>Randomly switches to explosive rounds.</td></tr>
                 <tr><td>Rank 3 (Legendary)</td><td>Frenzy</td><td>Small chance to frenzy a target.</td></tr>
                 <tr><td>Rank 3 (Legendary)</td><td>One Inch Punch</td><td>Rounds fire in a shotgun-like spread.</td></tr>
                 <tr><td>Rank 3 (Legendary)</td><td>Shattering</td><td>Break through even the strongest armor.</td></tr>
                 <tr><td>Rank 3 (Legendary)</td><td>Skip Shot</td><td>Every fourth shot fires two projectiles at once.</td></tr>
-                <tr><td>Rank 3 (Legendary)</td><td>Tesla</td><td>Rounds emit electricity that damages and slows nearby targets.</td></tr>
+                <tr><td>Rank 3 (Legendary)</td><td>Tesla</td><td>Rounds will sometimes emit electricity where they land that damages and slows nearby targets.</td></tr>
                 <tr><td>Rank 3 (Legendary)</td><td>Titanium Build</td><td>Premium build materials make this weapon light as a feather.</td></tr>
-                <tr><td>Rank 4 (Exotic)</td><td>Barbaric</td><td>Attacks get faster/powerful with each hit; movement speed increased in combat.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Barbaric</td><td>Attacks are faster and get more powerful with each consecutive hit; movement speed is increased while in combat.</td></tr>
                 <tr><td>Rank 4 (Exotic)</td><td>Bloodthirsty</td><td>Killing enemies grants health.</td></tr>
                 <tr><td>Rank 4 (Exotic)</td><td>Kismet</td><td>On reload, there is a 25% chance to triple your magazine size.</td></tr>
                 <tr><td>Rank 4 (Exotic)</td><td>Methodical</td><td>Grants a massive damage boost after killing elite enemies.</td></tr>
-                <tr><td>Rank 4 (Exotic)</td><td>Reckless</td><td>Ranged: Mag size is 1, dmg increased 500%, max health reduced by 50%.</td></tr>
-                <tr><td>Rank 4 (Exotic)</td><td>Saboteur</td><td>Damaging robots may instakill them, robots dying this way explode.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Reckless</td><td>Ranged weapons only: Magazine size is reduced to 1, damage is increased by 500%, and your maximum health is reduced by 50%.</td></tr>
+                <tr><td>Rank 4 (Exotic)</td><td>Saboteur</td><td>Damaging robots has a chance to instantly kill them, and robots that die from this effect also explode.</td></tr>
             </tbody>
         </table>
     </div>
@@ -256,22 +295,31 @@
         <table id="SpacesuitTable">
             <thead>
                 <tr>
-                    <th onclick="sortTable('SpacesuitTable', 0)">Slot / Category <span class="sort-icon">&#9650;&#9660;</span></th>
-                    <th onclick="sortTable('SpacesuitTable', 1)">Mod Name <span class="sort-icon">&#9650;&#9660;</span></th>
-                    <th onclick="sortTable('SpacesuitTable', 2)">Description <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('SpacesuitTable', 0)">Slot / Category <span class="sort-icon"></span></th>
+                    <th onclick="sortTable('SpacesuitTable', 1)">Mod Name <span class="sort-icon"></span></th>
+                    <th onclick="sortTable('SpacesuitTable', 2)">Description <span class="sort-icon"></span></th>
                 </tr>
             </thead>
             <tbody>
                 <tr><td>Slot 1</td><td>Ballistic Shielding</td><td>Increases physical damage resistance.</td></tr>
                 <tr><td>Slot 1</td><td>EM Shielding</td><td>Increases Electromagnetic resistance.</td></tr>
                 <tr><td>Slot 1</td><td>Energy Shielding</td><td>Increases Energy resistance.</td></tr>
+                <tr><td>Slot 1 (Additional)</td><td>Improved Ballistic Shielding</td><td>greatly increases ballistic resistance.</td></tr>
+                <tr><td>Slot 1 (Additional)</td><td>EM+Energy Shielding</td><td>increases both energy and EM resistances.</td></tr>
                 <tr><td>Slot 2</td><td>Explosive Shielding</td><td>Reduces damage taken from explosives.</td></tr>
                 <tr><td>Slot 2</td><td>Optimized Servos</td><td>Reduces Oxygen cost for sprinting.</td></tr>
                 <tr><td>Slot 2</td><td>Auto-Medic</td><td>Automatically use a Med Pack when hit and health is below 25%, once every 60 seconds.</td></tr>
+                <tr><td>Slot 2 (Additional)</td><td>Thermal/Corrosive/Radiation/Airborne Shielding</td><td>increases resistance to corresponding environmental damage.</td></tr>
                 <tr><td>Slot 3</td><td>Heavy Shielding</td><td>Increases all overarching damage resistances.</td></tr>
                 <tr><td>Slot 3</td><td>Exo Servos</td><td>Increases melee damage output.</td></tr>
+                <tr><td>Slot 3 (Additional)</td><td>Chem Distribution System</td><td>increases all Chems duration.</td></tr>
+                <tr><td>Slot 3 (Additional)</td><td>Composite Materials</td><td>reduces weight.</td></tr>
+                <tr><td>Slot 3 (Additional)</td><td>Hazard Protection</td><td>increases resistance to all types of environmental damage.</td></tr>
                 <tr><td>Slot 4</td><td>Pocketed</td><td>Increases overall carrying capacity.</td></tr>
                 <tr><td>Slot 4</td><td>Gravitic Composites</td><td>Reduces detection from enemies, enhancing stealth.</td></tr>
+                <tr><td>Slot 4 (Additional)</td><td>Fortified Servos</td><td>increases jump height.</td></tr>
+                <tr><td>Slot 4 (Additional)</td><td>Life Support</td><td>decreases change of getting an affliction.</td></tr>
+                <tr><td>Slot 4 (Additional)</td><td>Internal Dampeners</td><td>increases stagger resistance.</td></tr>
                 <tr><td>Rank 1 (Rare)</td><td>Ablative</td><td>-15% incoming energy damage.</td></tr>
                 <tr><td>Rank 1 (Rare)</td><td>Anti-Ballistic</td><td>-15% incoming Physical damage from ranged weapons.</td></tr>
                 <tr><td>Rank 1 (Rare)</td><td>Beast Hunter</td><td>-15% damage from Alien enemies.</td></tr>
@@ -321,19 +369,30 @@
         <table id="HelmetTable">
             <thead>
                 <tr>
-                    <th onclick="sortTable('HelmetTable', 0)">Slot / Category <span class="sort-icon">&#9650;&#9660;</span></th>
-                    <th onclick="sortTable('HelmetTable', 1)">Mod Name <span class="sort-icon">&#9650;&#9660;</span></th>
-                    <th onclick="sortTable('HelmetTable', 2)">Description <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('HelmetTable', 0)">Slot / Category <span class="sort-icon"></span></th>
+                    <th onclick="sortTable('HelmetTable', 1)">Mod Name <span class="sort-icon"></span></th>
+                    <th onclick="sortTable('HelmetTable', 2)">Description <span class="sort-icon"></span></th>
                 </tr>
             </thead>
             <tbody>
                 <tr><td>Slot 1</td><td>Ballistic Shielding</td><td>Increases physical damage resistance.</td></tr>
                 <tr><td>Slot 1</td><td>EM Shielding</td><td>Increases Electromagnetic resistance.</td></tr>
                 <tr><td>Slot 1</td><td>Energy Shielding</td><td>Increases Energy resistance.</td></tr>
+                <tr><td>Slot 1 (Additional)</td><td>Improved Ballistic Shielding</td><td>greatly increases ballistic resistance.</td></tr>
+                <tr><td>Slot 1 (Additional)</td><td>EM+Energy Shielding</td><td>increases both energy and EM resistances.</td></tr>
                 <tr><td>Slot 2</td><td>Explosive Shielding</td><td>Reduces damage taken from explosives.</td></tr>
                 <tr><td>Slot 2</td><td>Sensor Array</td><td>Increases the detection range of enemies on the compass.</td></tr>
+                <tr><td>Slot 2 (Additional)</td><td>Thermal/Corrosive/Radiation/Airborne Shielding</td><td>increases resistance to corresponding environmental damage.</td></tr>
                 <tr><td>Slot 3</td><td>Heavy Shielding</td><td>Increases all overarching damage resistances.</td></tr>
+                <tr><td>Slot 3 (Additional)</td><td>Composite Materials</td><td>reduces weight.</td></tr>
+                <tr><td>Slot 3 (Additional)</td><td>Hazard Protection</td><td>increases resistance to all types of environmental damage.</td></tr>
+                <tr><td>Slot 3 (Additional)</td><td>Integrated Optics</td><td>increases weapon range.</td></tr>
+                <tr><td>Slot 3 (Additional)</td><td>Targeting Support</td><td>increases sneak attack damage.</td></tr>
                 <tr><td>Slot 4</td><td>Gravitic Composites</td><td>Reduces detection from enemies, enhancing stealth.</td></tr>
+                <tr><td>Slot 4 (Additional)</td><td>CO2 Scrubbers</td><td>increases CO2 recovery rate.</td></tr>
+                <tr><td>Slot 4 (Additional)</td><td>Combat Interface</td><td>increases weapon accuracy.</td></tr>
+                <tr><td>Slot 4 (Additional)</td><td>Tactical Analyzer</td><td>increases critical chance and critical damage.</td></tr>
+                <tr><td>Slot 4 (Additional)</td><td>Reinforced Visor</td><td>decreases headshot damage.</td></tr>
                 <tr><td>Rank 1 (Rare)</td><td>Ablative</td><td>-15% incoming energy damage.</td></tr>
                 <tr><td>Rank 1 (Rare)</td><td>Anti-Ballistic</td><td>-15% incoming Physical damage from ranged weapons.</td></tr>
                 <tr><td>Rank 1 (Rare)</td><td>Beast Hunter</td><td>-15% damage from Alien enemies.</td></tr>
@@ -383,18 +442,22 @@
         <table id="BoostPackTable">
             <thead>
                 <tr>
-                    <th onclick="sortTable('BoostPackTable', 0)">Slot / Category <span class="sort-icon">&#9650;&#9660;</span></th>
-                    <th onclick="sortTable('BoostPackTable', 1)">Mod Name <span class="sort-icon">&#9650;&#9660;</span></th>
-                    <th onclick="sortTable('BoostPackTable', 2)">Description <span class="sort-icon">&#9650;&#9660;</span></th>
+                    <th onclick="sortTable('BoostPackTable', 0)">Slot / Category <span class="sort-icon"></span></th>
+                    <th onclick="sortTable('BoostPackTable', 1)">Mod Name <span class="sort-icon"></span></th>
+                    <th onclick="sortTable('BoostPackTable', 2)">Description <span class="sort-icon"></span></th>
                 </tr>
             </thead>
             <tbody>
                 <tr><td>Slot 1</td><td>Extra Capacity</td><td>Increases carrying capacity via pack modifications.</td></tr>
                 <tr><td>Slot 1</td><td>Hazard Protection</td><td>Boosts resistance to Airborne, Thermal, Corrosive, and Radiation hazards.</td></tr>
                 <tr><td>Slot 1</td><td>Oxygen Reserve</td><td>Expands maximum oxygen reserves.</td></tr>
+                <tr><td>Slot 1 (Additional)</td><td>Slot 1: Zero-G Stabilizers</td><td>less weapon recoil in Zero-G.</td></tr>
+                <tr><td>Slot 1 (Additional)</td><td>Slot 1: Heavy Shielding</td><td>increase all damage resistance and weight.</td></tr>
                 <tr><td>Slot 2</td><td>Emergency Aid</td><td>Administers emergency aid when health is low, recharging after a short time.</td></tr>
                 <tr><td>Slot 2</td><td>Medic</td><td>Enhances overall medical capabilities.</td></tr>
                 <tr><td>Slot 2</td><td>Regeneration</td><td>Slowly restores health outside of active combat scenarios.</td></tr>
+                <tr><td>Slot 2 (Additional)</td><td>Ammo Pockets</td><td>increases reload speed.</td></tr>
+                <tr><td>Slot 2 (Additional)</td><td>Weight Redistribution</td><td>decreases weight of all items.</td></tr>
                 <tr><td>Type Slot</td><td>Basic Boostpack</td><td>Entry-level boostpack setup.</td></tr>
                 <tr><td>Type Slot</td><td>Balanced Boostpack</td><td>Boostpack with a balanced distribution of power and volume.</td></tr>
                 <tr><td>Type Slot</td><td>Power Boostpack</td><td>Focuses thrust for maximum vertical momentum.</td></tr>
@@ -438,7 +501,6 @@
 </div>
 
 <script>
-    // Tab switching logic
     function openTab(evt, tabName) {
         let i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
@@ -452,18 +514,15 @@
         document.getElementById(tabName).style.display = "block";
         evt.currentTarget.className += " active";
         
-        // Clear search when switching tabs to avoid confusion
         document.getElementById("searchInput").value = "";
         searchTables();
     }
 
-    // Search logic for active table
     function searchTables() {
         let input, filter, activeTab, table, tr, td, i, j, txtValue;
         input = document.getElementById("searchInput");
         filter = input.value.toLowerCase();
         
-        // Find which tab is active
         let tabcontents = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontents.length; i++) {
             if (tabcontents[i].style.display === "block") {
@@ -492,20 +551,37 @@
         }
     }
 
-    // Sort logic for specific tables
     let sortDirections = {};
     function sortTable(tableId, columnIndex) {
         let table, rows, switching, i, x, y, shouldSwitch;
         table = document.getElementById(tableId);
-        switching = true;
+        let headers = table.getElementsByTagName("th");
+        
+        // Reset other headers classes
+        for (let h = 0; h < headers.length; h++) {
+            if (h !== columnIndex) {
+                headers[h].classList.remove("asc", "desc");
+            }
+        }
+        
+        let currentHeader = headers[columnIndex];
         
         if (!(tableId + columnIndex in sortDirections)) {
             sortDirections[tableId + columnIndex] = true;
+            currentHeader.classList.add("asc");
         } else {
             sortDirections[tableId + columnIndex] = !sortDirections[tableId + columnIndex];
+            if (sortDirections[tableId + columnIndex]) {
+                currentHeader.classList.remove("desc");
+                currentHeader.classList.add("asc");
+            } else {
+                currentHeader.classList.remove("asc");
+                currentHeader.classList.add("desc");
+            }
         }
         
         let sortDir = sortDirections[tableId + columnIndex];
+        switching = true;
 
         while (switching) {
             switching = false;
@@ -515,16 +591,17 @@
                 x = rows[i].getElementsByTagName("TD")[columnIndex];
                 y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
                 
-                let valX = x.innerHTML.toLowerCase();
-                let valY = y.innerHTML.toLowerCase();
+                let valX = x.textContent || x.innerText;
+                let valY = y.textContent || y.innerText;
 
+                // Handle natural alphanumeric sorting if possible
                 if (sortDir) {
-                    if (valX > valY) {
+                    if (valX.toLowerCase() > valY.toLowerCase()) {
                         shouldSwitch = true;
                         break;
                     }
                 } else {
-                    if (valX < valY) {
+                    if (valX.toLowerCase() < valY.toLowerCase()) {
                         shouldSwitch = true;
                         break;
                     }
